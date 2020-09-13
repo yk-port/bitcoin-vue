@@ -3,7 +3,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  async asyncData({ $axios }) {
+    const url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+    const res = await $axios.get(url);
+    console.log(res);
+  },
+  data() {
+    return {
+      bpi: null
+    };
+  }
+};
 </script>
 
 <style>
